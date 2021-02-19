@@ -1,0 +1,50 @@
+{% extends "base_catalog.html" %}
+{% load static %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block body_block %}
+{% endblock %}
+
+{% block content %}
+
+<div class="sidebar">
+  <h3>Categories</h3>
+  <ul>
+    <div>
+      <li><a href="{% url 'courses:display_catalog' %}">All</a></li>
+    </div>
+
+      {% for c in categories %}
+      <div>
+        <li><a href="{% url 'courses:display_catalog_category' category_id=c.id  %}">{{c.name}}</a></li>
+      </div>
+      {% endfor %}
+
+  </ul>
+</div>
+
+    <div class="course-list">
+      <h1>{% if category %} {{category.name}} {% else %} Courses {% endif %}</h1>
+      {% for course in courses %}
+        <div class="row">
+
+          <div class="course-card">
+            <a href="{% url 'courses:course_page' course_id=course.id  %}">
+              <img src="{% if course.course_picture %}{{course.course_picture.url}} {% endif %}" style="width:100%">
+            </a>
+            <h1>{{course.course_name}}</h1>
+            <p class="course-card-price">${{course.course_price}}</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <form class="" method="POST">
+              {% csrf_token %}
+              <p><button type="submit" formaction="{% url 'cart:cart_add' course_id=course.id %}">Add to Cart</button></p>
+            </form>
+          </div>
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+{% endblock %}

@@ -1,1 +1,14 @@
-<p>blog-list works!</p>
+<div>
+
+    <div *ngFor="let blog of blogs">
+        <p class = "blog_title">{{ blog.blog_title }}</p>
+        <div class="article-image">
+            <img [src]="blog.blog_picture" width="100%"/>
+        </div>
+    </div>
+        
+
+</div>
+
+
+

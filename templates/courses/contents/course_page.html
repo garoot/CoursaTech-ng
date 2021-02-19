@@ -1,0 +1,65 @@
+{% extends "base_catalog.html" %}
+{% load static %}
+<head>
+  <!-- <script type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/
+      swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript">
+      var flashvars = {};
+      var params = {movie:"{{content_item.file.url}}"};
+      swfobject.embedSWF("flash/splayer.swf",
+      "content", "400", "320", "8.0.0",
+      flashvars, params);</script> -->
+</head>
+{% block title %} Home Page {% endblock %}
+
+{% block body_block %}
+{% endblock %}
+
+{% block content %}
+
+<video width=600 controls>
+<source src="{{ content_item.video.url }}" type="video/mp4">
+</video>
+<p>{{content_item.video.url}}</p>
+
+<div class="course-card">
+    <img src="{% if course.course_picture %}{{course.course_picture.url}} {% endif %}" style="width:100%">
+  <h1>{{course.course_name}}</h1>
+  <p class="course-card-price">${{course.course_price}}</p>
+  <p> <button type="button" name="button">Add to Cart</button> </p>
+</div>
+
+<div class="course-content">
+  <h2>Contents</h2>
+  {% for section in sections %}
+    <h4>{{section.section_name}}</h4>
+      <ul>
+        {% for content in contents %}
+          {% if content.course_section == section%}
+            <a href="{% url 'courses:content_play' content_id=content.id %}"><li>{{content.title}}</li></a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+  {% endfor %}
+</div>
+
+<div class="course-info">
+
+  <h2>Course Outcomes</h2>
+  <p>{{course.course_outcomes}}</p><br>
+
+  <h2>Requirements</h2>
+  <p>{{course.course_requirements}}</p><br>
+
+  <h2>Course Description</h2>
+  <p>{{course.course_description}}</p><br>
+
+  <h2>Course Outline</h2>
+  <p>{{course.course_outline}}</p><br>
+
+</div>
+
+
+
+{% endblock %}
