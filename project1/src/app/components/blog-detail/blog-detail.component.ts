@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ɵInjectableAnimationEngine } from '@angular/platform-browser/animations';
+import { ActivatedRoute, Params } from '@angular/router';
 import { BlogService } from 'src/app/blog.service';
 import { IBlog } from 'src/app/models/blog';
 
@@ -10,11 +12,26 @@ import { IBlog } from 'src/app/models/blog';
 export class BlogDetailComponent implements OnInit {
 
   public blogs: IBlog[] = [];
-  constructor(private _blogService: BlogService) { }
+  public blogId: any = null;
+  public blog: IBlog = <IBlog>{}
+
+  // public blog: IBlog = {}; 
+
+  constructor(
+    private _blogService: BlogService,
+    private activatedRoute: ActivatedRoute,
+    // public id: number,
+    // public blog: IBlog
+    ) { }
   
   ngOnInit(): void {
-    this._blogService.getBlogs()
-      .subscribe(data => this.blogs = data)
+
+    this.blogId = this.activatedRoute.snapshot.params.id
+
+    this._blogService.getBlog(this.blogId)
+      .subscribe(data => this.blog = data)
+
+      // this.blog = this.blogs.find(blog => blog.id === this.blogId)
   }
 
 }

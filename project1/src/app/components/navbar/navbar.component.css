@@ -95,14 +95,18 @@
     padding-bottom: 10px;
   
   }
-
+  a:link {
+    text-decoration: none;
+    color: white;
+}
   .blog-wrap{
     top: 0;
     padding-right: 50px;
-    margin-right: 85px;
-    margin-top: 22px;
+    margin-right: 65px;
+    margin-top: 35px;
     height: 80px;
     margin-bottom: 20px;
+    color: white;
   }
 .nav-buttonwrap{
   margin-left: 600px;

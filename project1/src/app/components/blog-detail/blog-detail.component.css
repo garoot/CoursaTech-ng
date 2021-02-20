@@ -22,3 +22,59 @@
   .article-content{
     color: white;
   }
+  .blog-list {
+    padding-top: 100px;
+  }
+  
+  @media screen and (max-width: 768px){
+  
+    .blog-container{
+      text-align: center;
+    }
+    .blog-image{
+      position: relative; 
+    }
+    .blog-info{
+      position: absolute;
+      width: 300px;
+      background-color: #0a001a;
+      text-align: center;
+      margin-left: 20px;
+      margin-right: 20px; 
+    }
+    .blog-info-topic-wrap{
+      position: absolute;
+      background-color: #0a001a;
+      opacity: 50%;
+      min-width: 400px;
+      min-height: 120px;  
+    }
+    .blog-info-topic{
+      position: absolute;
+      padding-top: 1px;
+      text-align: left;
+      align-content: center;
+      width: 400px;
+      max-height: 120px;
+      max-width: 400px;
+      justify-content: center;
+      padding-left: 5%;
+      padding-right: 5%;
+      overflow: hidden;
+    
+    }
+    .blog-info-description{
+      display: none;
+    }
+    
+    .blog-splitter{
+      border-bottom: 0px solid #20A9DE;
+      width: 50%;
+      margin-left: 25%;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+  
+  }
+  
+  

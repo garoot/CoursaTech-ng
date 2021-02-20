@@ -1,4 +1,5 @@
 export interface IBlog {
+    id: number,
     author: string,
     blog_title: string,
     blog_description: string,

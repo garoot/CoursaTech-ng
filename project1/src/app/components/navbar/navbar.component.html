@@ -3,7 +3,9 @@
 
     <div class="brand">
         <!-- <Link to='/'> -->
-        <img [src]="'../../assets/logo28.png'" width="185" height="35" alt="" />
+            <a [routerLink]="['/bloglist']">
+                <img [src]="'../../assets/logo28.png'" width="185" height="35" alt="" />
+            </a>
         <!-- </Link> -->
     </div>
 
@@ -11,7 +13,10 @@
     <div class="blog-wrap">
             <div class="nav-buttonwrap">
                 <p class="nav-link button" to="/">
-                    Blogs
+                    <a [routerLink]="['/bloglist']">
+                        Blogs
+                    </a>
+                    
                 </p>
             </div>
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"

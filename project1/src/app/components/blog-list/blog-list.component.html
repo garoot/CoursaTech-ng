@@ -1,7 +1,7 @@
 
 <div class="blog-list">
-    <div  *ngFor= "let blog of blogs">
-        <div class="blog-container">
+    <a  *ngFor= "let blog of blogs" [routerLink]="['/bloglist', blog.id]">
+        <li class="blog-container">
             <div class="blog-image">
                 <img [src]="blog.blog_picture" width="400" height="230" alt="" />
             </div>
@@ -18,9 +18,12 @@
                     <p>{{blog.blog_description}}</p>
                 </div>
             </div>
-        </div>
+        </li>
         <div class="blog-splitter text-center">
         </div>
-    </div>
+    </a>
+    <!-- <a (click)="onClick(blog)"  *ngFor= "let blog of blogs"> -->
+        
+    <!-- </a> -->
 </div>
 

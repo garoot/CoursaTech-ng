@@ -1,8 +1,7 @@
 <div class="article-wrap">
 
-    <div class="article-mid" *ngFor="let blog of blogs">
-
-        <p class = "article-title">{{ blog.blog_title }}</p>
+    <div class="article-mid">
+        <h1 class = "article-title">{{ blog.blog_title }}</h1>
 
         <div class="article-image">
             <img [src]="blog.blog_picture" width="100%"/>
@@ -13,8 +12,5 @@
 
         </div>
 
-
     </div>
-        
-
 </div>
