@@ -1,0 +1,26 @@
+<div class="login-wrap">
+  <!-- <div *nfIf="authenticated; then thenBlock; else elseBlock">
+  </div> -->
+
+  <!-- <ng-template #thenBlock> -->
+    <div class="logged-in">{{authenticated}}</div>
+  <!-- </ng-template> -->
+
+  <!-- <ng-template #elsBlock> -->
+    <div>
+      <div style="text-align:center">
+        <h1>
+          Login
+        </h1>
+      </div>
+    
+      <input #email type='text' placeholder='email'>
+      <input #password type='password' placeholder='password'>
+      <button (click)="login(email.value, password.value)">login</button>
+      <p>{{ error?.message }}</p>
+      <p *ngIf="error">{{ error?.error | json }}</p>
+  
+    </div>
+  <!-- </ng-template> -->
+      
+</div>
