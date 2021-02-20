@@ -58,7 +58,7 @@ class CustomUser(AbstractUser):
     """
     the variable below keeps track of the status of the most recent application
     """
-    instructor_application_status = models.CharField(max_length=20, choices=APPLICATION_STATUS, default='None')
+    # instructor_application_status = models.CharField(max_length=20, choices=APPLICATION_STATUS, default='None')
 
     """
     the image files below will be stored in folder 'user' followed by the date it is saved

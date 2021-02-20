@@ -1,14 +1,26 @@
-<div>
 
-    <div *ngFor="let blog of blogs">
-        <p class = "blog_title">{{ blog.blog_title }}</p>
-        <div class="article-image">
-            <img [src]="blog.blog_picture" width="100%"/>
+<div class="blog-list">
+    <div  *ngFor= "let blog of blogs">
+        <div class="blog-container">
+            <div class="blog-image">
+                <img [src]="blog.blog_picture" width="400" height="230" alt="" />
+            </div>
+    
+            <div class="blog-info text-left">
+                <!-- <div class="blog-info-topic-wrap">
+    
+                </div> -->
+                <div class="blog-info-topic">
+                    <h2>{{blog.blog_title}}</h2>
+                </div>
+                
+                <div class="blog-info-description">
+                    <p>{{blog.blog_description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-splitter text-center">
         </div>
     </div>
-        
-
 </div>
-
-
 

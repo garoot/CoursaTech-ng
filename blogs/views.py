@@ -10,7 +10,7 @@ from rest_framework.permissions import AllowAny
 
 # list and create blogs
 class BlogListView(generics.ListCreateAPIView):
-    # permission_classes = [AllowAny]
+    permission_classes = [AllowAny]
 
     queryset = Blog.objects.all()
     serializer_class = BlogDetailSerializer

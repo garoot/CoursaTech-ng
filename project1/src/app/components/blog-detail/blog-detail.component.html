@@ -1,1 +1,20 @@
-<p>blog-detail works!</p>
+<div class="article-wrap">
+
+    <div class="article-mid" *ngFor="let blog of blogs">
+
+        <p class = "article-title">{{ blog.blog_title }}</p>
+
+        <div class="article-image">
+            <img [src]="blog.blog_picture" width="100%"/>
+        </div>
+
+        <div class="article-content"> 
+           <div [innerHtml]="blog.content">{{ blog.content }} </div> 
+
+        </div>
+
+
+    </div>
+        
+
+</div>

@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { BlogService } from './blog.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { BlogService } from './blog.service';
     NavbarComponent,
     BlogListComponent,
     BlogDetailComponent,
+    FooterComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [BlogService],
   bootstrap: [AppComponent]

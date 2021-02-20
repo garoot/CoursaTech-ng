@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #doesn't work yet
     path('api/', include('blogs.urls')),
-    # path('api/', include('users.urls')),
+    path('api/', include('users.urls')),
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^courses/', include('courses.urls', namespace='courses')),
     path('tinymce/', include('tinymce.urls')),

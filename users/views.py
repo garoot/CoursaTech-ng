@@ -9,7 +9,10 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import CustomUserSerializer
+from rest_framework.generics import UpdateAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import AllowAny
+
+from .serializers import CustomUserSerializer, ProfileSerializer, UsersSerializer, UserDetailSerializer
 
 
 
@@ -24,10 +27,16 @@ def index(request):
     - get the application's user instance
     - approve/disapprove it and save it
     """
-class HelloWorldView(APIView):
+# class HelloWorldView(APIView):
 
-    def get(self, request):
-     return Response(data={"hello":"world"}, status=status.HTTP_200_OK)
+#     def get(self, request):
+#      return Response(data={"hello":"world"}, status=status.HTTP_200_OK)
+
+class UsersListView(ListCreateAPIView):
+    permission_classes = [permissions.AllowAny,]
+
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
 
 class CustomUserCreate(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -40,6 +49,31 @@ class CustomUserCreate(APIView):
                 json = serializer.data
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    permission_classes = [AllowAny]
+
+    serializer_class = UserDetailSerializer
+    queryset = CustomUser.objects.all()
+
+class ProfileUpdateView(UpdateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = ProfileSerializer
+    queryset = CustomUser.objects.all()
+    # lookup_field = 'pk'
+
+
+    # def update(self, request, pk = None):
+    #     # log.debug("update pk= %s , data = %s" % (pk, str(request.data)))
+    #     # pk = request.data.get('id')
+    #     self.kwargs['pk'] = request.data.get('username')
+    #     return super().update(request, pk)
+
+    # def update(self, request, *args, **kwargs):
+    #     serializer = self.serializer_class(request.user, data=request.data, partial=True)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
 
 # @login_required
 # def list_applications(request):

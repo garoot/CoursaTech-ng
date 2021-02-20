@@ -1,0 +1,24 @@
+.article-wrap{
+    /* margin-left: 0; */
+    display: grid;
+    /* grid-template-rows: auto 1fr auto; */
+    /* position: relative; */
+    /* padding: 5px; */
+    max-width: 1200px;
+    width: 100%;
+    margin: 8.5rem auto;
+}
+.article-image{
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+  .article-title{
+    color: white;
+  }
+  .article-author{
+    color: #20A9DE;
+  }
+
+  .article-content{
+    color: white;
+  }

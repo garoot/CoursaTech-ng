@@ -83,11 +83,14 @@ REST_FRAMEWORK = {
     
     'DATETIME_FORMAT': "%d-%m-%Y",
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny', # will allow unrestricted access
+        # 'rest_framework.permissions.IsAdminUser',
+        # 'rest_framework.permissions.IsAuthenticated' 
+        'rest_framework.permissions.AllowAny' 
+
     ),
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # )
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
     
 }
 

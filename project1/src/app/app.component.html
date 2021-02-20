@@ -1,6 +1,6 @@
 
 <div class="site-wrapper">
-  <app-blog-list></app-blog-list>
+  
   <!-- <Router> -->
     <div class="navbar-container" top={0} bottomBoundary={260}>
       <app-navbar></app-navbar>
@@ -11,7 +11,9 @@
         <GetBlogs />
       </Route> 
       <Route path='/blog/:blogId' component={GetBlogDetail} /> -->
-  
+
+      <app-blog-list></app-blog-list>
+      <!-- <app-blog-detail></app-blog-detail> -->
     </div>
 
 
@@ -20,4 +22,5 @@
     <!-- </div> -->
     <!-- <Footer /> -->
   <!-- </Router> -->
+  <app-footer></app-footer>
 </div>
