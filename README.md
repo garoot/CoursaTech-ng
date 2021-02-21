@@ -23,6 +23,8 @@
 - create virtual environment 'venv' within ./CoursaTech-ng 
 - activate it using (for windows): .\CoursaTech-ng\venv\Scripts\Activate
 - install dependencies (look at ./CoursaTech-ng/Requirements.md)
+- create superuser: python manage.py createsuperuser 
+- most importantly enter email and password (email will be used as username) 
 - run the command: python manage.py makemigrations 
 - run the command: python manage.py migrate
 
@@ -39,4 +41,7 @@
 (alternatively, you can run: 'ng start' inside ./CoursaTech-ng/project1)
 
 now go to the browsers visit the link given by Angular, normally this link: http://localhost:4200/
+
+NOTE: you can have admin access by logging in with your superuser credentials at http://localhost:8000/admin to control data
+
 
