@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlogService } from './blog.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule,
+    
   ],
   providers: [
     BlogService,

@@ -1,19 +1,22 @@
 <div class="signup-wrap">
-
-    <div style="text-align:center">
-        <h1>
-          Signup
-        </h1>
+  <div class="signup-form">
+    <div class="signup-header">
+        Signup
     </div>
-    
-    <input #username type='text' placeholder='username'>
-    <input #email type='text' placeholder='email'>
-    <input #password type='password' placeholder='password'>
-    <div>
-      <button (click)="signup(username.value, email.value, password.value)">signup</button>
-
+  
+    <input class="username-field" #username type='text' placeholder='username'>
+    <input class="email-field" #email type='text' placeholder='email'>
+    <input class="password-field" #password type='password' placeholder='password'>
+    <div class="signup-btn">
+      <button (click)="signup(username.value, email.value, password.value)">Sign Up</button>
     </div>
-    <p>{{ error?.message }}</p>
-    <p *ngIf="error">{{ error?.error | json }}</p>
+    <a routerLink="/login">
+      <button class="btn" > Login </button>
+    </a>
+    <!-- <p>{{ error?.message }}</p>
+    <p *ngIf="error">{{ error?.error | json }}</p> -->
+
+  </div>
+
 
 </div>

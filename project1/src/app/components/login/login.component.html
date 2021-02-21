@@ -1,37 +1,23 @@
 <div class="login-wrap">
-  <!-- <div *nfIf="isLoggedin(); then thenBlock; else elseBlock">
-  </div> -->
-
-  <!-- <ng-template #thenBlock> -->
-    <div class="logged-in">
-    </div>
-  <!-- </ng-template> -->
-
-  <!-- <ng-template #elsBlock> -->
-    <div>
-      <div style="text-align:center">
-        <h1>
+    <div class="login-form">
+      <div class="login-header" >
           Login
-        </h1>
       </div>
     
-      <input #email type='text' placeholder='email'>
-      <input #password type='password' placeholder='password'>
-      <div>
-        <button (click)="login(email.value, password.value)">login</button>
-        <a routerLink="/signup">
-          <button class="btn btn-success pull-right" > Register </button>
-        </a>
+      <input class="email-field" #email type='text' placeholder='email'>
+      <input class="password-field" #password type='password' placeholder='password'>
+      <div class="login-btn">
+        <button  (click)="login(email.value, password.value)">Login</button>
       </div>
+      <a routerLink="/signup">
+        <button class="btn"> Register </button>
+      </a>
       
-      <p>{{ error?.message }}</p>
-      <p *ngIf="error">{{ error?.error | json }}</p>
+      <!-- <p>{{ error?.message }}</p>
+      <p *ngIf="error">{{ error?.error | json }}</p> -->
 
-      <button (click)="refreshToken()">refresh token</button>
-
-  
+      <!-- <button (click)="refreshToken()">refresh token</button> -->
     </div>
-  <!-- </ng-template> -->
       
 </div>
 
