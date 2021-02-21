@@ -1,14 +1,14 @@
 <div class="login-wrap">
-  <!-- <div *nfIf="authenticated; then thenBlock; else elseBlock">
-  </div> -->
+  <div *nfIf="isLoggedin(); then thenBlock; else elseBlock">
+  </div>
 
-  <!-- <ng-template #thenBlock> -->
+  <ng-template #thenBlock>
     <div class="logged-in">
       <h2>{{token}}</h2>
     </div>
-  <!-- </ng-template> -->
+  </ng-template>
 
-  <!-- <ng-template #elsBlock> -->
+  <ng-template #elsBlock>
     <div>
       <div style="text-align:center">
         <h1>
@@ -27,6 +27,6 @@
 
   
     </div>
-  <!-- </ng-template> -->
+  </ng-template>
       
 </div>
