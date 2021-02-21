@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  error: any;
+  error: any="";
 
   constructor(
     private authService: AuthService,

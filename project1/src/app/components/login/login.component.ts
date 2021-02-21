@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       () => {
         this.token = localStorage.getItem('jwt')
         this.refresh = JSON.parse(this.token).refresh
-        // console.log(this.authService.isLoggedIn)
+        console.log(this.authService.isLoggedIn)
         // if (this.token){
         this.router.navigate(['/bloglist'])
         // }

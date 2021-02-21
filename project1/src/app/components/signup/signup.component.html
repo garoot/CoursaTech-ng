@@ -9,7 +9,10 @@
     <input #username type='text' placeholder='username'>
     <input #email type='text' placeholder='email'>
     <input #password type='password' placeholder='password'>
-    <button (click)="signup(username.value, email.value, password.value)">signup</button>
+    <div>
+      <button (click)="signup(username.value, email.value, password.value)">signup</button>
+
+    </div>
     <p>{{ error?.message }}</p>
     <p *ngIf="error">{{ error?.error | json }}</p>
 
