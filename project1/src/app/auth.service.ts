@@ -14,17 +14,25 @@ import { environment } from '../environments/environment';
 export class AuthService {
 
   private apiRoot = 'http://127.0.0.1:8000/api/';
-  private token: any = "";
-
-  constructor(private http: HttpClient) { }
+  public token: any = {"refresh":"", "access":""};
+  public refresh: any = "";
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    
+    ) { }
 
   private setSession(authResult: any) {
-    this.token = authResult.token;
-    const payload = <JWTPayload> jwtDecode(this.token);
-    const expiresAt = moment.unix(payload.exp);
+    const expiresAt = moment().add(authResult.expiresIn,'second');
+    // this.token = authResult.token;
+    // const payload = <JWTPayload> jwtDecode(this.token);
+    // const expiresAt = moment.unix(payload.exp);
+    localStorage.setItem('jwt', JSON.stringify(authResult));
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    // console.log(expiresAt)
+    // localStorage.setItem('token', authResult.token);
+    // localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
 
-    localStorage.setItem('token', authResult.token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
   // get token(): string {
@@ -35,10 +43,11 @@ export class AuthService {
     return this.http.post(
       this.apiRoot.concat('login/'),
       { email, password }
-    ).pipe(
+    )
+    .pipe(
       tap(response => this.setSession(response)),
       shareReplay(),
-    );
+    )
   }
 
   signup(username: string, email: string, password: string) {
@@ -53,31 +62,45 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
     localStorage.removeItem('expires_at');
   }
 
   refreshToken(): any {
-    if (moment().isBetween(this.getExpiration().subtract(1, 'days'), this.getExpiration())) {
-      return this.http.post(
-        this.apiRoot.concat('refresh-token/'),
-        { token: this.token }
-      ).pipe(
-        tap(response => this.setSession(response)),
-        shareReplay(),
-      ).subscribe();
-    }
+    this.token = localStorage.getItem('jwt')
+    var refresh = JSON.parse(this.token).refresh
+    return this.http.post(
+      this.apiRoot.concat('token/refresh/'),
+      { refresh })
+      .pipe(
+            tap(response => this.setSession(response)),
+            shareReplay(),
+          )
+
+    
+    // if (moment().isBetween(this.getExpiration().subtract(1, 'days'), this.getExpiration())) {
+    //   return this.http.post(
+    //     this.apiRoot.concat('token/refresh/'),
+    //     { token: this.token }
+    //   ).pipe(
+    //     tap(response => this.setSession(response)),
+    //     shareReplay(),
+    //   ).subscribe();
+    // }
   }
 
   getExpiration() {
     const expiration: any = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration.toString());
+    const expiresAt = JSON.parse(expiration);
+    // console.log(moment(expiresAt))
 
     return moment(expiresAt);
   }
 
   isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    console.log(moment(this.getExpiration()).isBefore())
+    return moment(this.getExpiration()).isBefore();
+
   }
 
   isLoggedOut() {
@@ -85,42 +108,42 @@ export class AuthService {
   }
 }
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+// @Injectable()
+// export class AuthInterceptor implements HttpInterceptor {
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
+//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+//     const token = localStorage.getItem('jwt');
 
-    if (token) {
-      const cloned = req.clone({
-        headers: req.headers.set('Authorization', 'JWT '.concat(token))
-      });
+//     if (token) {
+//       const cloned = req.clone({
+//         headers: req.headers.set('Authorization', 'JWT '.concat(token))
+//       });
 
-      return next.handle(cloned);
-    } else {
-      return next.handle(req);
-    }
-  }
-}
+//       return next.handle(cloned);
+//     } else {
+//       return next.handle(req);
+//     }
+//   }
+// }
 
-@Injectable()
-export class AuthGuard implements CanActivate {
+// @Injectable()
+// export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) { }
+//   constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate() {
-    if (this.authService.isLoggedIn()) {
-      this.authService.refreshToken();
+//   canActivate() {
+//     if (this.authService.isLoggedIn()) {
+//       this.authService.refreshToken();
 
-      return true;
-    } else {
-      this.authService.logout();
-      this.router.navigate(['login']);
+//       return true;
+//     } else {
+//       this.authService.logout();
+//       this.router.navigate(['login']);
 
-      return false;
-    }
-  }
-}
+//       return false;
+//     }
+//   }
+// }
 
 interface JWTPayload {
   user_id: number;

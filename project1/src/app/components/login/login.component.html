@@ -3,7 +3,9 @@
   </div> -->
 
   <!-- <ng-template #thenBlock> -->
-    <div class="logged-in">{{authenticated}}</div>
+    <div class="logged-in">
+      <h2>{{token}}</h2>
+    </div>
   <!-- </ng-template> -->
 
   <!-- <ng-template #elsBlock> -->
@@ -11,6 +13,7 @@
       <div style="text-align:center">
         <h1>
           Login
+          {{authenticated}}
         </h1>
       </div>
     
@@ -19,6 +22,9 @@
       <button (click)="login(email.value, password.value)">login</button>
       <p>{{ error?.message }}</p>
       <p *ngIf="error">{{ error?.error | json }}</p>
+
+      <button (click)="refreshToken()">refresh token</button>
+
   
     </div>
   <!-- </ng-template> -->

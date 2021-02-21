@@ -1,3 +1,11 @@
 .login-wrap{
     padding-top: 100px;
+    width: 50%;
+}
+.logged-in{
+    padding-top: 100px;
+    margin-top: 200px;
+    max-width: 1000px;
+    overflow:auto;
+    
 }

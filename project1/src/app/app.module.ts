@@ -8,9 +8,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlogService } from './blog.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { AuthGuard, AuthInterceptor, AuthService } from './auth.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,6 @@ import { AuthGuard, AuthInterceptor, AuthService } from './auth.service';
     NavbarComponent,
     FooterComponent,
     routingComponents,
-    LoginComponent,
-    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +28,6 @@ import { AuthGuard, AuthInterceptor, AuthService } from './auth.service';
     BlogService,
     AuthService,
     AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
   ],
   bootstrap: [AppComponent]
 })

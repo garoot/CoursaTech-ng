@@ -31,6 +31,13 @@ export class BlogDetailComponent implements OnInit {
     this._blogService.getBlog(this.blogId)
       .subscribe(data => this.blog = data)
 
+      // automatically scroll to top of page when loaded
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+
       // this.blog = this.blogs.find(blog => blog.id === this.blogId)
   }
 
