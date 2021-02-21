@@ -1,9 +1,42 @@
-# CoursaTech API
+# CoursaTech API - Blog + JWT Authentication System
+## Core Concepts Applied in this Project
+### Django RESTful Framework (DRF)
+- Server-side setup
+- Models Development
+- RESTful API development using DRF
+- Backend URL routing
+- Utilizing generec API views
+- Integration of JWT authentication in the backend
+- Setting up backend ports to frontend ports
+### Angular 11
+- Binding data, events and classes.
+- Structural directives (like *ngIf)
+- Component interaction
+- Dependency injection 
+- API fetching 
+- Routing & navigation
+- Building JWT authentication for frontend
+## Quick Setup
+### Server-Side Dependencies (Django RESTful Framework):
+- install pip (python package manager)
+- install vertual environment
+- create virtual environment 'venv' within ./CoursaTech-ng 
+- activate it using (for windows): .\CoursaTech-ng\venv\Scripts\Activate
+- install dependencies (look at ./CoursaTech-ng/Requirements.md)
+- run the command: python manage.py makemigrations 
+- run the command: python manage.py migrate
 
-## api usage:
-   ### to test bloglist retreival: 
-   - paste server link: http://127.0.0.1:8000/api/blogs
-   ### to test blog by id:
-   - paste: http://127.0.0.1:8000/api/blog/<id number> 
+#### Run the backend:
+- run the command: python manage.py runserver (from within ./CoursaTech-ng)
 
+### Client-Side Dependencies (Angular 11):
+- install npm (node package manage)
+- look at the setup: https://angular.io/guide/setup-local
+- also check package.json (for the dependencies of this project)
+
+#### Run the frontend:
+- run the command: npm start (from within ./CoursaTech-ng/project1)
+(alternatively, you can run: 'ng start' inside ./CoursaTech-ng/project1)
+
+now go to the browsers visit the link given by Angular, normally this link: http://localhost:4200/
 
