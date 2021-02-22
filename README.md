@@ -1,6 +1,6 @@
 # CoursaTech API - Blog + JWT Authentication System
 
-![alt text](https://github.com/garoot/CoursaTech-ng/blob/main/Angular-DRF-Auth.jpg)
+![alt text](https://github.com/garoot/CoursaTech-ng/blob/main/angular%2Bdjango.png)
 
 ## Core Concepts Applied in this Project
 ### Django RESTful Framework (DRF)
