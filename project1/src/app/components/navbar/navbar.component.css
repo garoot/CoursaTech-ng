@@ -2,7 +2,6 @@
     margin: 10px;
   }
 
-
   .navbar{
     /* START: The code for sticky navbar */
     position: fixed;
@@ -39,9 +38,9 @@
 
   
   }
-  .navbar-container{
+  /* .navbar-container{
     position: sticky;
-  }
+  } */
   
    /* @media screen and (max-width: 768px){ */
   
@@ -69,6 +68,22 @@
       margin-bottom: 20px;
   }
 
+  @media screen and (max-width: 768px){
+    .brand{
+      margin: 20px 10px;
+      text-align: center;
+    }
+
+    .blog-wrap{
+      display: none;
+    }
+
+    .navbar{
+      display: absolute;
+      text-align: center;
+      padding-left: 24%;
+    }
+  }
   .navbar-header> div{
     padding: 2px;
     border-color: black;
@@ -97,7 +112,9 @@
   }
   a:link {
     text-decoration: none;
-    color: white;
+}
+@media screen and (max-width: 768px){
+  
 }
   .blog-wrap{
     top: 0;
@@ -110,7 +127,7 @@
   }
 .nav-buttonwrap{
   margin-left: 600px;
-  padding-right: 50px;
+  padding-right: 10px;
 
 }
   .nav-footer-links-wrapper{

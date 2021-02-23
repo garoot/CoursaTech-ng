@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from 'src/app/blog.service';
 import { IBlog } from 'src/app/models/blog';
@@ -6,7 +6,8 @@ import { IBlog } from 'src/app/models/blog';
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.css']
+  styleUrls: ['./blog-list.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BlogListComponent implements OnInit {
 
