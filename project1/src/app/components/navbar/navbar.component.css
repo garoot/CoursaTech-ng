@@ -24,7 +24,7 @@
   height: 90px;
   /* min-width: 1000px; */
   background-image: radial-gradient(ellipse at center bottom, rgba(121, 22, 221, 0.7), rgba(59, 0, 135, 0.7) 40%, rgb(59, 0, 135));
-
+  text-align: center;
   opacity: .96;
   /* position: relative; */
   z-index: 300;
@@ -36,14 +36,12 @@
   /* overflow: hidden; */
   /* grid-template-columns: 1fr; */
 
-
 }  
 .brand{
-  /* top: 0; */
-  margin-left: 85px;
   margin-top: 20px;
   height: 80px;
   margin-bottom: 25px;
+  margin-right: 50px;
   
 }
 
@@ -59,32 +57,35 @@ a:link {
   height: 80px;
   margin-bottom: 20px;
   color: white;
+  text-align: center;
 }
 
 .nav-buttonwrap{
-  margin-left: 600px;
+  margin-left: 420px;
   margin-top: 2px;
   /* padding-right: 10px; */
-  color: #f7fafc;
+  /* color: #f7fafc; */
   /* -webkit-transition: all 150ms ease-in-out; */
   /* transition: all 150ms ease-in-out; */
   font-size: 18px;
   font-weight: 800;
   width: 80px;
-  padding: 2px;
+  padding: 4px;
 
-  text-align: center;
 
 }
 .nav-buttonwrap:hover {
   /* box-shadow: 0 0 5px 0 #3498db inset, 0 0 2px 2px #3498db; */
   border-radius: 13px;
-  color: rgb(240, 240, 240);
   background-color:rgb(226, 188, 19);
   /* border: 1px #20A9DE; */
   width: 80px;
-  padding: 2px;
+  padding: 4px;
   /* width: 100px; */
+}
+
+.nav-buttonwrap.a:hover{
+  color: blueviolet;
 }
 .nav-footer-links-wrapper{
   display: float;
