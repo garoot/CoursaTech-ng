@@ -199,9 +199,7 @@
     padding-top: 10px;
     color: #20A9DE;
   }
-  .navbar-container{
-    z-index: 1;
-  }
+
   
   .share-logos{
     /* position: -webkit-sticky; Safari */
@@ -313,27 +311,7 @@
   }
   
   
-  /* the navbar button styling */
-  .button {
-    /* color: #fff; */
-    color: #f7fafc;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-    border-radius: 13px;
-    font-size: 18px;
-    font-weight: 800;
-    width: 80px;
-    text-align: center;
-    
-  }
-  .button:hover {
-    /* box-shadow: 0 0 5px 0 #3498db inset, 0 0 2px 2px #3498db; */
-    color: black;
-    background-color:rgb(226, 188, 19);
-    border: 1px #20A9DE;
-    width: 80px;
-    /* width: 100px; */
-  }
+
   
   
 html, body { height: 100%; }
